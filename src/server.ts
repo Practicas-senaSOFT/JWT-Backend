@@ -1,5 +1,7 @@
 import app from './app';
 import http from 'http';
+import dotenv from 'dotenv';
+dotenv.config({path: './.env'});
 //DB
 import { MySQLDataSource } from './config/mysql/dataSource';
 
