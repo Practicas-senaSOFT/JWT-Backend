@@ -7,8 +7,9 @@ const app:Application = express();
 
 //  --> CORS
 const originOptions:cors.CorsOptions = {
-    origin: new RegExp(process.env.CORS_ORIGIN as string ?? 'http://localhost:3001'),
-    methods: ["GET","POST","PUT","DELETE"]
+    origin: new RegExp(process.env.CORS_ORIGIN as string ?? 'http://localhost:3000'),
+    // origin:'http://localhost:3000',
+    // methods: ["GET","POST","PUT","DELETE"]
 };
 //Usamos cors
 app.use(cors(originOptions));

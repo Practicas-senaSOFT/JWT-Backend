@@ -14,7 +14,7 @@ export const authLogin = async (req:Request, res:Response):Promise<Response> => 
         return res.status(401).json({msq:'Credentials invalid!'});
     }
     //all ok
-    console.log(`Login Successful ✔`);
+    console.log(`Login Successful ✔ ${response}`);
     return res.status(200).json({
         msg:'Login successful!', 
         data:response

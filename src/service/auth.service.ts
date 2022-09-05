@@ -8,6 +8,7 @@ import { createToken } from './token.service';
 export const authService = async (data:Auth):Promise<boolean|ResponseLogin|null> => {
     //Obtenemos usuario
     const foundUser:User|null = await getFindEmial(data.email);
+    console.log('USER:: ',foundUser);
     if(!foundUser) return null; //usuario no existe
     //Validamos password
     if(!(foundUser.password === data.password)) return false; //Pass no coinciden
