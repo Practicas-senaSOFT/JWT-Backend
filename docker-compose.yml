@@ -1,16 +1,16 @@
 version: '2.1'
 
 volumes:
-  jwt_vol:
+  jwtproject:
 
 services:
   mysql:
     image: mysql:8
-    container_name: JWTPractice
+    container_name: MYSQL
     environment:
-      - MYSQL_DATABASE=JWTProject
+      - MYSQL_DATABASE=JwtProject
       - MYSQL_ROOT_PASSWORD=0606
     ports:
-      - 3307:3306
+      - 3306:3306
     volumes:
-      - jwt_vol:/var/lib/mysql
+      - jwtproject:/var/lib/mysql
