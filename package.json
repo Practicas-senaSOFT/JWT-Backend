@@ -2,7 +2,7 @@
   "name": "jwt-backend",
   "version": "1.0.0",
   "description": "Proyecto simple para manejar JWT",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "dev": "npm run clean && nodemon build/src/server.js",
     "clean": "rm -rf ./build && tsc --project .",
