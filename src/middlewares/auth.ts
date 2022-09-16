@@ -1,23 +1,22 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { splitToken, isVerifyToken } from '../service/token.service';
+import { splitToken, isVelidToken } from '../service/token.service';
 
 //Validamos token - JWT
-export const isAuth = async (req:Request, res:Response, next:NextFunction) => {
+export const isAuth = async (req:Request, res:Response, next:NextFunction):Promise<Response|undefined> => {
     //Obtenemos JWT
     const { authorization } = req.headers;
-    //Calidamos si exite
+    //Validamos si exite
     if(!authorization) return res.status(401).json({msg:'Unauthorized: Es necesario autenticar'});;
     //Obtenemos solo el token 
     const token:string = splitToken(authorization);
-
     //Varificamos token
-    const payload:string|jwt.JwtPayload|boolean = await isVerifyToken(token);
-    //validamos 
-    if(payload){
-        res.locals.payload = payload; 
-        next();
-    }else{
+    const payload:string|jwt.JwtPayload|boolean = await isVelidToken(token);
+    //validamos resultado
+    if(!payload){
         return res.status(401).json({msq:'Invalidad JWT'});
     }
+    //else
+    res.locals.payload = payload; 
+    next();
 };

@@ -8,8 +8,8 @@ import { MySQLDataSource } from './config/mysql/dataSource';
 const main = async ():Promise<void> => {
     //creamos server 
     const server:http.Server = http.createServer(app);
-    //Definimoc puerto
-    const PORT:number|string = process.env.PORT || 3002;
+    //Definimos puerto
+    const PORT:number|string = process.env.PORT || 3000;
     try { 
         //Se coloca a escuchar al server
         server.listen(PORT, () => {
@@ -27,7 +27,6 @@ Promise.all(
     [
         console.log('Initializing...'),
         MySQLDataSource.initialize(),
-        console.log('MySQL connected ✔')
     ],
 ).then(()=>{
     //Start

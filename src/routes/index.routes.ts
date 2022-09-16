@@ -11,7 +11,7 @@ const _routes:[Router][] = [
     [routerProfile],
 ];
 //Iteramos por las rutas obtenidas
-export const routes = (app:Application) => {
+export const routes = (app:Application):void => {
     _routes.forEach(route => {
         //Deconstruimos las rutas
         const [url] = route;

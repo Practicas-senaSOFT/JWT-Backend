@@ -3,8 +3,7 @@ import { Auth } from '../interface/user';
 import { User } from '../models/sql/entities/User';
 import { getFindEmial } from '../models/sql/User/read';
 import { createToken } from './token.service';
-
-
+//login
 export const authService = async (data:Auth):Promise<boolean|ResponseLogin|null> => {
     //Obtenemos usuario
     const foundUser:User|null = await getFindEmial(data.email);
